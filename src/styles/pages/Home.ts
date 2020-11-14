@@ -9,6 +9,7 @@ export const Background = styled.div`
   flex: 1;
   background: url("../../background.jpeg") no-repeat;
   background-size: cover;
+  background-position: top;
 `;
 
 export const ContentFooterWrapper = styled.div`
