@@ -8,7 +8,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, button, input {
     -webkit-font-smoothing: antialiased;
     font-family:  Roboto, Arial, Helvetica, sans-serif;
   }
