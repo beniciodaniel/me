@@ -30,8 +30,10 @@ export const Background = styled.div<IPostConfigurationProps>`
 `;
 
 export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
-  width: 100%; // responsável pelo Content ocupar tudo quando tela diminuída
+  width: 100%;
   max-width: 500px;
+
+  padding: 20px 0 20px 0;
 
   display: flex;
   flex-direction: column;
@@ -43,13 +45,11 @@ export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
   ${(props) =>
     props.isPostConfiguration &&
     css`
-      max-width: 100%; // se não edita isso, ficará no máximo 500
+      max-width: 100%;
     `}
 `;
 
 export const Content = styled.main<IPostConfigurationProps>`
-  padding: 20px 0 20px 0;
-
   width: 320px;
   overflow: auto;
 
