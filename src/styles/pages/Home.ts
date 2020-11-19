@@ -75,7 +75,7 @@ export const Content = styled.main<IPostConfigurationProps>`
     a {
       text-decoration: none;
       color: #232129;
-      padding: 5px;
+      padding-top: 5px;
 
       &:hover {
         color: #d830a8;
@@ -96,7 +96,7 @@ export const Content = styled.main<IPostConfigurationProps>`
       background: transparent;
 
       color: #232129;
-      padding: 5px;
+      padding: 5px 0 5px 5px;
 
       font-size: 16px;
 
