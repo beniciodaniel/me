@@ -20,7 +20,7 @@ export const Background = styled.div<IPostConfigurationProps>`
   background-size: cover;
   background-position: top;
 
-  transition: flex 0.3s;
+  transition: flex 0.8s;
 
   ${(props) =>
     props.isPostConfiguration &&
@@ -40,7 +40,7 @@ export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
   align-items: center;
   justify-content: center;
 
-  transition: max-width 0.3s;
+  transition: max-width 0.8s;
 
   ${(props) =>
     props.isPostConfiguration &&
@@ -181,7 +181,7 @@ export const PostText = styled.div<IPostSelectedProps>`
   span {
     text-align: justify;
 
-    transition: opacity 0.7s ease-out;
+    transition: opacity 0.5s ease-in;
     opacity: 0;
     height: 0;
     overflow: hidden;
@@ -199,7 +199,7 @@ export const PostImage = styled.img<IPostSelectedProps>`
   width: 100%;
   height: 320px;
 
-  transition: opacity 0.7s ease-out;
+  transition: opacity 1s ease-in;
   opacity: 0;
   height: 0;
   overflow: hidden;
@@ -209,6 +209,7 @@ export const PostImage = styled.img<IPostSelectedProps>`
     css`
       opacity: 1;
       height: auto;
+      transition: opacity 0.5s ease-in;
     `}
 `;
 
