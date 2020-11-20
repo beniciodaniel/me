@@ -31,6 +31,7 @@ export const Background = styled.div<IPostConfigurationProps>`
 
 export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
   width: 100%;
+  /* height: 100%; */
   max-width: 500px;
 
   padding: 20px 0 20px 0;
@@ -49,19 +50,15 @@ export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
     `}
 `;
 
-export const Content = styled.main<IPostConfigurationProps>`
+export const Header = styled.header<IPostConfigurationProps>`
   width: 320px;
-  overflow: auto;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  div:last-child {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-  }
+  border-bottom: 1px solid #232129;
 
   p + p {
     margin-bottom: 16px;
@@ -117,27 +114,52 @@ export const Content = styled.main<IPostConfigurationProps>`
   }
 `;
 
+export const Content = styled.main<IPostConfigurationProps>`
+  /* height: 100vh; */
+  width: 320px;
+  overflow: auto;
+
+  /* background: red; */
+
+  // no post yet
+  div:last-child {
+    /* background: pink; */
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
 export const PostListContainer = styled.div`
-  border-top: 1px solid #232129;
   padding-top: 16px;
   margin-top: 1rem;
 
+  /* overflow: auto; */
+
   font-family: "Times New Roman", Times, serif;
+`;
 
-  ul {
-    list-style-type: none;
-    width: 100%;
+export const PostUl = styled.ul`
+  list-style-type: none;
+  height: 100%;
+  width: 100%;
 
-    li + li {
-      margin-top: 1rem;
-    }
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Post = styled.li<IPostSelectedProps>`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
+  /* margin-bottom: -10px; */
+
+  ${(props) =>
+    props.postId === props.showPostId &&
+    css`
+      margin-bottom: 16px;
+    `}
 `;
 
 export const PostButton = styled.button<IPostSelectedProps>`
@@ -177,20 +199,24 @@ export const PostButton = styled.button<IPostSelectedProps>`
 
 export const PostText = styled.div<IPostSelectedProps>`
   margin-bottom: 1rem;
+  /* height: 0; */
 
   span {
     text-align: justify;
 
-    transition: opacity 0.5s ease-in;
+    /* transition: opacity 0.5s ease-in;
     opacity: 0;
     height: 0;
-    overflow: hidden;
+    overflow: hidden; */
+
+    display: none;
 
     ${(props) =>
       props.postId === props.showPostId &&
       css`
-        opacity: 1;
-        height: auto;
+        /* opacity: 1;
+        height: auto; */
+        display: block;
       `}
   }
 `;
@@ -211,6 +237,23 @@ export const PostImage = styled.img<IPostSelectedProps>`
       height: auto;
       transition: opacity 0.5s ease-in;
     `}
+`;
+
+export const PostVideo = styled.div<IPostSelectedProps>`
+  iframe {
+    transition: opacity 1s ease-in;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+    ${(props) =>
+      props.postId === props.showPostId &&
+      css`
+        opacity: 1;
+        height: auto;
+        transition: opacity 0.5s ease-in;
+      `}
+  }
 `;
 
 export const Footer = styled.footer`

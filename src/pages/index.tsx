@@ -13,12 +13,15 @@ import {
   Container,
   Background,
   ContentFooterWrapper,
+  Header,
   Content,
   PostListContainer,
+  PostUl,
   Post,
   PostButton,
   PostText,
   PostImage,
+  PostVideo,
   Footer,
 } from "../styles/pages/Home";
 
@@ -47,7 +50,7 @@ export default function Home({ posts }: IHomeProps) {
       <Background isPostConfiguration={!!isPostConfiguration} />
 
       <ContentFooterWrapper isPostConfiguration={!!isPostConfiguration}>
-        <Content isPostConfiguration={!!isPostConfiguration}>
+        <Header isPostConfiguration={!!isPostConfiguration}>
           <h3>Benício Daniel Hasegawa</h3>
           <p>developer & architect</p>
           <p>benicio.daniel@gmail.com</p>
@@ -79,13 +82,19 @@ export default function Home({ posts }: IHomeProps) {
               <strong>blog</strong>
             </button>
           </div>
+        </Header>
 
+        <Content isPostConfiguration={!!isPostConfiguration}>
           {isPostConfiguration && !!posts.length && (
             <PostListContainer>
-              <ul>
+              <PostUl>
                 {posts.map((post) => {
                   return (
-                    <Post key={post.id}>
+                    <Post
+                      key={post.id}
+                      postId={post.id}
+                      showPostId={showPostId}
+                    >
                       <PostButton
                         onClick={() => handleClickedPostVisualization(post.id)}
                         postId={post.id}
@@ -105,16 +114,28 @@ export default function Home({ posts }: IHomeProps) {
                         </span>
                       </PostText>
 
-                      <PostImage
-                        postId={post.id}
-                        showPostId={showPostId}
-                        src={post.data.thumbnail.list320.url}
-                        alt="Imagem"
-                      />
+                      {post.data.thumbnail.list320.url && (
+                        <PostImage
+                          postId={post.id}
+                          showPostId={showPostId}
+                          src={post.data.thumbnail.list320.url}
+                          alt="Image"
+                        />
+                      )}
+
+                      {post.data.video.html && (
+                        <PostVideo
+                          postId={post.id}
+                          showPostId={showPostId}
+                          dangerouslySetInnerHTML={{
+                            __html: post.data.video.html,
+                          }}
+                        ></PostVideo>
+                      )}
                     </Post>
                   );
                 })}
-              </ul>
+              </PostUl>
             </PostListContainer>
           )}
 
@@ -140,9 +161,10 @@ export default function Home({ posts }: IHomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
-  const posts = await client().query([
+  const posts = await client().query(
     Prismic.Predicates.at("document.type", "post"),
-  ]);
+    { orderings: "[document.last_publication_date desc]" }
+  );
 
   return {
     props: {
