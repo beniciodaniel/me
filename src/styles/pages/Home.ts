@@ -58,7 +58,7 @@ export const Header = styled.header<IPostConfigurationProps>`
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid #232129;
+  border-bottom: 1px solid #765898;
 
   p + p {
     margin-bottom: 16px;
@@ -75,7 +75,7 @@ export const Header = styled.header<IPostConfigurationProps>`
       padding-top: 5px;
 
       &:hover {
-        color: #d830a8;
+        color: #52d053;
       }
 
       strong {
@@ -203,6 +203,7 @@ export const PostText = styled.div<IPostSelectedProps>`
 
   span {
     text-align: justify;
+    line-height: 20px;
 
     /* transition: opacity 0.5s ease-in;
     opacity: 0;
@@ -241,6 +242,8 @@ export const PostImage = styled.img<IPostSelectedProps>`
 
 export const PostVideo = styled.div<IPostSelectedProps>`
   iframe {
+    margin-top: -20px;
+
     transition: opacity 1s ease-in;
     opacity: 0;
     height: 0;
