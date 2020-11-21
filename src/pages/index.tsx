@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { format, parseISO } from "date-fns";
 
 import SEO from "../components/SEO";
@@ -163,7 +163,7 @@ export default function Home({ posts }: IHomeProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
+export const getStaticProps: GetStaticProps<IHomeProps> = async () => {
   const posts = await client().query(
     Prismic.Predicates.at("document.type", "post"),
     { orderings: "[document.last_publication_date desc]" }
@@ -173,5 +173,6 @@ export const getServerSideProps: GetServerSideProps<IHomeProps> = async () => {
     props: {
       posts: posts.results,
     },
+    revalidate: 86400,
   };
 };
