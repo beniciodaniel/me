@@ -51,12 +51,15 @@ export default function Home({ posts }: IHomeProps) {
 
       <ContentFooterWrapper isPostConfiguration={!!isPostConfiguration}>
         <Header isPostConfiguration={!!isPostConfiguration}>
-          <h3>Benício Daniel Hasegawa</h3>
+          <button type="button" onClick={() => handlePostConfiguration()}>
+            <h3>Benício Daniel Hasegawa</h3>
+          </button>
+
           <p>developer & architect</p>
           <p>benicio.daniel@gmail.com</p>
           <p>curitiba / brazil</p>
 
-          <div>
+          <nav>
             <a
               href="https://github.com/beniciodaniel"
               rel="noopener noreferrer"
@@ -81,7 +84,7 @@ export default function Home({ posts }: IHomeProps) {
             <button type="button" onClick={() => handlePostConfiguration()}>
               <strong>blog</strong>
             </button>
-          </div>
+          </nav>
         </Header>
 
         <Content isPostConfiguration={!!isPostConfiguration}>

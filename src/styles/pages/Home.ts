@@ -58,13 +58,22 @@ export const Header = styled.header<IPostConfigurationProps>`
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid #765898;
+  border-bottom: 1px solid #232129;
+
+  > button {
+    background: transparent;
+    border: 0;
+
+    &:hover {
+      color: #d830a8;
+    }
+  }
 
   p + p {
     margin-bottom: 16px;
   }
 
-  div {
+  nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -75,7 +84,7 @@ export const Header = styled.header<IPostConfigurationProps>`
       padding-top: 5px;
 
       &:hover {
-        color: #52d053;
+        color: #d830a8;
       }
 
       strong {
