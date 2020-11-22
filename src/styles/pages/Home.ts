@@ -58,7 +58,11 @@ export const Header = styled.header<IPostConfigurationProps>`
   justify-content: center;
   align-items: center;
 
-  border-bottom: 1px solid #232129;
+  ${(props) =>
+    props.isPostConfiguration &&
+    css`
+      border-bottom: 1px solid #000;
+    `}
 
   > button {
     background: transparent;
@@ -128,11 +132,8 @@ export const Content = styled.main<IPostConfigurationProps>`
   width: 320px;
   overflow: auto;
 
-  /* background: red; */
-
   // no post yet
   div:last-child {
-    /* background: pink; */
     margin-top: 1rem;
     display: flex;
     justify-content: center;
@@ -153,16 +154,15 @@ export const PostUl = styled.ul`
   height: 100%;
   width: 100%;
 
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
 `;
 
 export const Post = styled.li<IPostSelectedProps>`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
-  /* margin-bottom: -10px; */
 
   ${(props) =>
     props.postId === props.showPostId &&
