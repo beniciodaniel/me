@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { GetStaticProps } from "next";
-import { format, parseISO } from "date-fns";
 
 import SEO from "../components/SEO";
 
 import { client } from "@/lib/prismic";
 import { Document } from "prismic-javascript/types/documents";
 import Prismic from "prismic-javascript";
-import PrismicDOM from "prismic-dom";
 
 import {
   Container,
@@ -17,13 +15,9 @@ import {
   Content,
   PostListContainer,
   PostUl,
-  Post,
-  PostButton,
-  PostText,
-  PostImage,
-  PostVideo,
   Footer,
 } from "../styles/pages/Home";
+import PostItem from "@/components/PostItem";
 
 interface IHomeProps {
   posts: Document[];
@@ -93,49 +87,14 @@ export default function Home({ posts }: IHomeProps) {
               <PostUl>
                 {posts.map((post) => {
                   return (
-                    <Post
+                    <PostItem
                       key={post.id}
-                      postId={post.id}
+                      post={post}
+                      handleClickedPostVisualization={
+                        handleClickedPostVisualization
+                      }
                       showPostId={showPostId}
-                    >
-                      <PostButton
-                        onClick={() => handleClickedPostVisualization(post.id)}
-                        postId={post.id}
-                        showPostId={showPostId}
-                      >
-                        <span>
-                          {format(parseISO(post.data.postdate), "dd/MM/yyyy")}
-                        </span>
-                        <strong>
-                          {PrismicDOM.RichText.asText(post.data.title)}
-                        </strong>
-                      </PostButton>
-
-                      <PostText postId={post.id} showPostId={showPostId}>
-                        <span>
-                          {PrismicDOM.RichText.asText(post.data.text)}
-                        </span>
-                      </PostText>
-
-                      {post.data.thumbnail.list320.url && (
-                        <PostImage
-                          postId={post.id}
-                          showPostId={showPostId}
-                          src={post.data.thumbnail.list320.url}
-                          alt="Image"
-                        />
-                      )}
-
-                      {post.data.video.html && (
-                        <PostVideo
-                          postId={post.id}
-                          showPostId={showPostId}
-                          dangerouslySetInnerHTML={{
-                            __html: post.data.video.html,
-                          }}
-                        ></PostVideo>
-                      )}
-                    </Post>
+                    />
                   );
                 })}
               </PostUl>
