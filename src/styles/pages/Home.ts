@@ -58,6 +58,7 @@ export const Header = styled.header<IPostConfigurationProps>`
   ${(props) =>
     props.isPostConfiguration &&
     css`
+      padding-bottom: 5px;
       border-bottom: 1px solid #000;
     `}
 

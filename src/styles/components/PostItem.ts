@@ -1,9 +1,4 @@
 import styled, { css } from "styled-components";
-
-interface IPostConfigurationProps {
-  isPostConfiguration: boolean;
-}
-
 interface IPostSelectedProps {
   postId?: string;
   showPostId?: string;
@@ -26,7 +21,7 @@ export const PostButton = styled.button<IPostSelectedProps>`
   background: transparent;
 
   color: #232129;
-  padding: 5px;
+  /* padding: 5px; */
 
   font-size: 16px;
   text-transform: lowercase;
