@@ -47,16 +47,14 @@ export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
 
 export const Header = styled.header<IPostConfigurationProps>`
   width: 320px;
-  height: 30vh;
-
-  /* background: blue; */
+  height: 20vh;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  margin-bottom: 10px;
+  margin-bottom: 28px;
 
   ${(props) =>
     props.isPostConfiguration &&
@@ -130,7 +128,8 @@ export const Header = styled.header<IPostConfigurationProps>`
 `;
 
 export const Content = styled.main<IPostConfigurationProps>`
-  /* height: 100vh; */
+  height: ${(props) => (props.isPostConfiguration ? "80vh" : "0")};
+
   width: 320px;
   overflow: auto;
 
@@ -143,7 +142,7 @@ export const Content = styled.main<IPostConfigurationProps>`
 `;
 
 export const PostListContainer = styled.div`
-  padding-top: 16px;
+  /* padding-top: 16px; */
   margin-top: 1rem;
 
   /* overflow: auto; */
