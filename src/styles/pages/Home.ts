@@ -26,8 +26,8 @@ export const Background = styled.div<IPostConfigurationProps>`
 
 export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
   width: 100%;
-  /* height: 100%; */
   max-width: 500px;
+  height: 100%;
 
   padding: 20px 0 20px 0;
 
@@ -47,6 +47,9 @@ export const ContentFooterWrapper = styled.div<IPostConfigurationProps>`
 
 export const Header = styled.header<IPostConfigurationProps>`
   width: 320px;
+  height: 30vh;
+
+  /* background: blue; */
 
   display: flex;
   flex-direction: column;
