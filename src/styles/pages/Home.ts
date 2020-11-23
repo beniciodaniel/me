@@ -53,6 +53,8 @@ export const Header = styled.header<IPostConfigurationProps>`
   justify-content: center;
   align-items: center;
 
+  margin-bottom: 10px;
+
   ${(props) =>
     props.isPostConfiguration &&
     css`
@@ -62,6 +64,7 @@ export const Header = styled.header<IPostConfigurationProps>`
   > button {
     background: transparent;
     border: 0;
+    font-size: 18px;
 
     &:hover {
       color: #d830a8;
