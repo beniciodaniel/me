@@ -21,7 +21,6 @@ export const PostButton = styled.button<IPostSelectedProps>`
   background: transparent;
 
   color: #232129;
-  /* padding: 5px; */
 
   font-size: 16px;
   text-transform: lowercase;
@@ -36,7 +35,7 @@ export const PostButton = styled.button<IPostSelectedProps>`
   color: #232129;
 
   span {
-    width: 75px; // marcando a largura exata
+    width: 75px;
     text-align: left;
   }
 
@@ -53,24 +52,16 @@ export const PostButton = styled.button<IPostSelectedProps>`
 
 export const PostText = styled.div<IPostSelectedProps>`
   margin-bottom: 1rem;
-  /* height: 0; */
 
   span {
     text-align: justify;
     line-height: 20px;
-
-    /* transition: opacity 0.5s ease-in;
-    opacity: 0;
-    height: 0;
-    overflow: hidden; */
 
     display: none;
 
     ${(props) =>
       props.postId === props.showPostId &&
       css`
-        /* opacity: 1;
-        height: auto; */
         display: block;
       `}
   }

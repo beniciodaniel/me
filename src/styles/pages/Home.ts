@@ -142,10 +142,7 @@ export const Content = styled.main<IPostConfigurationProps>`
 `;
 
 export const PostListContainer = styled.div`
-  /* padding-top: 16px; */
   margin-top: 1rem;
-
-  /* overflow: auto; */
 
   font-family: "Times New Roman", Times, serif;
 `;
@@ -154,10 +151,6 @@ export const PostUl = styled.ul`
   list-style-type: none;
   height: 100%;
   width: 100%;
-
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
 `;
 
 export const Footer = styled.footer`

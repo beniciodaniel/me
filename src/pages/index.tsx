@@ -6,6 +6,7 @@ import SEO from "../components/SEO";
 import { client } from "@/lib/prismic";
 import { Document } from "prismic-javascript/types/documents";
 import Prismic from "prismic-javascript";
+import PostItem from "@/components/PostItem";
 
 import {
   Container,
@@ -17,7 +18,6 @@ import {
   PostUl,
   Footer,
 } from "../styles/pages/Home";
-import PostItem from "@/components/PostItem";
 
 interface IHomeProps {
   posts: Document[];

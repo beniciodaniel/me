@@ -7,7 +7,7 @@ export default function NotFound() {
       <SEO title="Page not found :(" />
       <Text>
         <h1>404</h1>
-        <p>are you lost? lol</p>
+        <p>are you lost? :P</p>
       </Text>
       <Background />
     </Container>
